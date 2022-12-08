@@ -47,7 +47,7 @@ class Main:
             await asyncio.sleep(1)
 
         print(self.list_of_answers[4])
-        print("{} got {} points!\n{} got {} points.".format(self.name, self.points,"CPU", self.cpu_points))
+        print("{} got {} points!\n{} got {} points.".format(self.name, self.points, "CPU", self.cpu_points))
 
         print(self.list_of_answers[4])
         choices = await self.get_choices()
@@ -73,12 +73,12 @@ class Main:
         cpu = choices[1].lower()
 
         print(self.list_of_answers[4])
-        print(f"{Colors.cyan}{self.name} Choosen {user}{Colors.end}")
+        print(f"{Colors.cyan}{self.name} Chosen {user}{Colors.end}")
 
         print(self.list_of_answers[4])
         await asyncio.sleep(1)
 
-        print(f"{Colors.cyan}CPU Choosen {cpu}{Colors.end}")
+        print(f"{Colors.cyan}CPU Chosen {cpu}{Colors.end}")
 
         await asyncio.sleep(1)
 
@@ -89,7 +89,7 @@ class Main:
             # lose
             if cpu == "paper":
                 self.cpu_points += 1
-                return self.list_of_answers[1].format(Colors.red ,"CPU", self.name, Colors.end)
+                return self.list_of_answers[1].format(Colors.red, "CPU", self.name, Colors.end)
             # win
             if cpu == "scissors":
                 self.points += 1
@@ -122,7 +122,12 @@ class Main:
                 return self.list_of_answers[0]
 
     async def get_choices(self):
-        user_choice = input("{}Choose an option from the following: {} Or type quit.{}\n".format(Colors.green, self.list_of_choices, Colors.end))
+        user_choice = input("{}Choose an option from the following: {} Or type quit.{}\n".format(
+            Colors.green,
+            self.list_of_choices,
+            Colors.end)
+        )
+
         if user_choice.lower() not in self.list_of_choices:
             if user_choice.lower() == "quit":
                 print(f"{Colors.green}Thank you for playing this game! {Colors.end}")
